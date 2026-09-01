@@ -12,6 +12,7 @@ without this repo they die with the machine.
 | Skill | Invoke | What it does |
 |---|---|---|
 | `dsa` | `/dsa <leetcode url \| number \| title>` | Solves a DSA problem as a ladder of approaches in interview-presentation order — brute force → refinements → optimal — with Java code, complexity in every heading, and a closing interview strategy. |
+| `linkedin-post-writter` | *(auto — ask for a LinkedIn post)* | Writes authentic, Top-Voice-style LinkedIn posts: hook/body/close anatomy, four post formats (story, list, contrarian, observation), vulnerability guardrails, formatting rules and engagement strategy. |
 
 ## Set up on a new machine
 
@@ -56,11 +57,16 @@ claude-skills/
 ├── backup.ps1
 ├── .gitignore
 └── skills/
-    └── dsa/
+    ├── dsa/
+    │   ├── SKILL.md
+    │   └── references/
+    │       ├── example-238-product-except-self.md
+    │       └── example-739-daily-temperatures.md
+    └── linkedin-post-writter/
         ├── SKILL.md
         └── references/
-            ├── example-238-product-except-self.md
-            └── example-739-daily-temperatures.md
+            ├── hooks.md
+            └── examples.md
 ```
 
 ## Also worth backing up
