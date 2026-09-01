@@ -8,6 +8,147 @@ description: Create engaging, authentic LinkedIn posts like a Top Voice. Use thi
 Create engaging, authentic LinkedIn posts that drive meaningful engagement and
 establish thought leadership.
 
+## Inputs
+
+The request may carry any of these. All are optional except the topic.
+
+```
+<topic, or the file being attached>
+format: story | list | contrarian | observation
+include my experience: <one real detail>
+examples: <the real-world example(s) to use>
+```
+
+### When the user passes them
+
+**`format:`** — use it. Execute that format as well as it can be executed, but do
+not silently switch to a different one. If a different format would clearly reach
+further, write the one they asked for anyway and add a single line to the end of
+`Do these:` saying which format you'd test against it.
+
+**`include my experience:`** — build the post around it, usually in the hook or
+right after it, because a specific real detail is the strongest opening LinkedIn
+has. Keep the facts exactly as given. Sharpen the wording, never the claim: do not
+round numbers up, add a company name, invent a colleague, or stretch "a few weeks"
+into "months". If the detail is thin, ask one question to get the missing piece
+rather than filling it in.
+
+**`examples:`** — use every one they listed, by name. These are the concrete
+anchors the reader recognises — a product they use daily, a company that published
+the number, a failure that made the news — so give each one a real line rather
+than a passing mention. Verify anything you state as fact about them; if you
+cannot confirm a detail, use the example without that detail instead of guessing.
+Do not pad the list with examples of your own on top of theirs.
+
+### When the user passes nothing
+
+**Format** — choose the one that will reach furthest for that specific topic and
+audience, and just write it. Rough guide:
+
+| Topic shape | Format that usually reaches furthest |
+|---|---|
+| A thing that broke, a decision, a mistake | Story |
+| A guide, framework, or attached document | List |
+| Advice everyone repeats that is wrong | Contrarian |
+| A pattern across many companies or repos | Observation |
+
+**Experience** — leave it out. Write the post so it stands on the substance alone.
+Never invent a personal anecdote, a timeframe, a number, or an "it happened to me
+last week" to fill the gap; a fabricated detail is the one thing that ends a
+person's credibility when someone asks about it in the comments.
+
+**Examples** — use the minimum the post needs to land, usually one: the single
+thing the reader already touches every day. Do not stack three more on top to look
+thorough; each extra example costs a reader and adds nothing the first one didn't
+already do. Hold the rest back and offer them instead of spending them.
+
+If the chosen format genuinely needs a personal anchor to work, write the line as
+a visible placeholder — `[the moment this happened to you]` — so the user fills it
+in themselves, and say so in one line at the end of `Do these:`.
+
+### Remind them how to steer it
+
+One post per request — this skill is not for batching. If the user wants a
+different angle they ask again, and the second attempt is better for having seen
+the first.
+
+The first time you write a post in a conversation, add this as the last line of
+`Do these:`
+
+```
+- Want a different angle? Steer it with "format:", "examples:" or "include my experience: <detail>"
+```
+
+Drop that line on later posts in the same conversation — they know by then.
+
+## Output Format (follow this every time)
+
+The user is going to copy the post straight into LinkedIn. Make the copy boundary
+unmistakable and keep everything else short.
+
+### 1. The post body goes between two `---` rules
+
+Nothing else may appear between them — no commentary, no notes, no headings. The
+text between the rules is exactly what gets pasted, hashtags included.
+
+```
+---
+[hook line]
+
+[body]
+
+#Hashtag #Hashtag #Hashtag
+---
+```
+
+Write the post as plain text with real line breaks. Do not wrap it in a code
+fence, do not use markdown bold/italics/bullets inside it — LinkedIn renders none
+of that, and `**asterisks**` paste through as literal characters. Use emoji or a
+leading dash if a list needs visual markers.
+
+Do not print a character count, a hook-length note, or any other stat about the
+post. Check the limits yourself while writing — the hook must clear the
+~210-character "see more" cut and the whole post must sit under 3,000 characters —
+but keep that work silent. The user wants the post, not the measurements.
+
+### 2. Everything else is a short action list, not an essay
+
+After the post, give only what the user has to *do* — no research write-ups, no
+tables of algorithm findings, no explaining the reasoning back to them. Aim for
+six lines or fewer:
+
+```
+Do these:
+- Post Tue-Thu, 12 PM or 5 PM (document posts peak there)
+- Upload the PDF natively - no link anywhere in the body
+- Drop your first comment within 60 seconds
+- Reply to every comment for the first 90 minutes
+- Leave 3-5 comments on other posts just before you publish
+```
+
+Do not volunteer a first comment, a follow-up comment, or alternate versions of
+the post. One post is the deliverable. Write those only if the user asks for
+them, and then put each in its own `---` block.
+
+### 3. The answer contains these two things and nothing else
+
+A complete answer is one `---` post block, then the `Do these:` list. That is the whole response. Do not add:
+
+- an intro line before the post ("Here's the post", "Updated version below")
+- a note on what you changed or why
+- character counts, hook-length notes, or any other stat
+- a first comment, alternate hooks, or variants
+- research summaries, sources, or algorithm explanations
+- a closing question, suggestion, or offer to tweak anything
+
+Say nothing after the last bullet of `Do these:`. The narrow exceptions above —
+a format you'd test instead, a placeholder the user must fill, the offer of more
+options — belong inside that list as one bullet each, not as prose after it.
+
+If something genuinely blocks the work — a fact you would otherwise have to invent
+— ask that one question instead of guessing, and ask it on its own with no post
+attached.
+
 ## Core Principles
 
 ### Authenticity Over Performance
@@ -136,6 +277,33 @@ End with purpose, not desperation.
 - "Comment YES if..." (engagement bait)
 - "Share this with someone who needs it" (needy)
 - "Follow me for more" (salesy)
+
+### The closing question must be effortless to answer
+
+This is the line that generates the early comments reach depends on, so it gets
+written as carefully as the hook. Two tests it has to pass:
+
+**1. Can someone answer it without thinking?** If the reader has to search their
+memory, reconstruct an example, or re-read the question, they scroll instead. A
+question phrased around something they *stopped* noticing, *hadn't* considered, or
+*didn't* realise is asking for recall they don't have on demand — it reads clever
+and performs badly.
+
+- Weak: "Which limit do you hit so often that you'd stopped noticing someone chose it?"
+- Strong: "What's the most annoying rate limit you deal with?"
+
+**2. Does it give them a way to sound smart?** The best closers offer a small,
+low-risk call the reader can make in public. Guesses invite corrections,
+corrections invite replies, and replies are what turn three comments into thirty.
+
+- Better still: "What's the most annoying limit you deal with — and do you reckon it's a bucket or a window?"
+
+**Cut the throat-clearing.** "Genuinely curious:", "Curious whether...", "Honest
+question:", "Am I the only one who..." are filler that protest slightly too much.
+Ask the question directly; one short sentence beats a hedged two.
+
+Keep it to one question. Two questions in a close means most people answer
+neither.
 
 ## Vulnerability Done Right
 
