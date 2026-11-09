@@ -13,8 +13,14 @@ without this repo they die with the machine.
 |---|---|---|
 | `dsa` | `/dsa <leetcode url \| number \| title>` | Solves a DSA problem as a ladder of approaches in interview-presentation order — brute force → refinements → optimal — with Java code, complexity in every heading, and a closing interview strategy. |
 | `linkedin-post-writter` | *(auto — ask for a LinkedIn post)* | Writes authentic, Top-Voice-style LinkedIn posts: hook/body/close anatomy, four post formats (story, list, contrarian, observation), vulnerability guardrails, formatting rules and engagement strategy. |
+| `video-editor` | `/video-editor` *(or auto — ask to edit a video)* | AI video-editing toolkit: one-command setup (`scripts/setup.sh`) for ffmpeg, whisper.cpp, yt-dlp, gallery-dl, HyperFrames and Remotion, plus the editing workflow — transcribe, cut silences, captions, 9:16 reels, motion graphics, platform exports, reference downloads (YouTube/Instagram). |
 
 ## Set up on a new machine
+
+macOS/Linux: symlink a skill into place, e.g. `ln -sfn "$PWD/skills/video-editor" ~/.claude/skills/video-editor`.
+For `video-editor`, then run `bash skills/video-editor/scripts/setup.sh` to install the tools.
+
+Windows:
 
 ```powershell
 git clone <your-repo-url> $HOME\Documents\claude-skills
