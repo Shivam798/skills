@@ -13,12 +13,13 @@ without this repo they die with the machine.
 |---|---|---|
 | `dsa` | `/dsa <leetcode url \| number \| title>` | Solves a DSA problem as a ladder of approaches in interview-presentation order — brute force → refinements → optimal — with Java code, complexity in every heading, and a closing interview strategy. |
 | `linkedin-post-writter` | *(auto — ask for a LinkedIn post)* | Writes authentic, Top-Voice-style LinkedIn posts: hook/body/close anatomy, four post formats (story, list, contrarian, observation), vulnerability guardrails, formatting rules and engagement strategy. |
-| `video-editor` | `/video-editor` *(or auto — ask to edit a video)* | AI video-editing toolkit: one-command setup (`scripts/setup.sh`) for ffmpeg, whisper.cpp, yt-dlp, gallery-dl, HyperFrames and Remotion, plus the editing workflow — transcribe, cut silences, captions, 9:16 reels, motion graphics, platform exports, reference downloads (YouTube/Instagram). |
+| `video-generate-setup` | `/video-generate-setup` *(or auto — "install/check the video tools")* | Setup only, makes no videos. `scripts/doctor.sh` checks and `scripts/setup.sh` installs ffmpeg (+ffmpeg-full), whisper.cpp + model, yt-dlp, gallery-dl, Node/npx (Remotion per project), HyperFrames, uv, Chrome, the `~/VE` folders and the Kokoro voice env. Was `video-editor` (git tag `video-editor-final`). |
+| `archify` | *(auto — ask for a diagram)* | Third-party skill from [tt-a1i/archify](https://github.com/tt-a1i/archify) (MIT). Turns a description or a repo into a validated, interactive standalone HTML diagram (architecture, workflow, sequence, data-flow, lifecycle). Outputs go to `~/Documents/archify`. Update with `npx skills add tt-a1i/archify -g -a claude-code -s archify -y`, then move it back here. |
 
 ## Set up on a new machine
 
-macOS/Linux: symlink a skill into place, e.g. `ln -sfn "$PWD/skills/video-editor" ~/.claude/skills/video-editor`.
-For `video-editor`, then run `bash skills/video-editor/scripts/setup.sh` to install the tools.
+macOS/Linux: symlink a skill into place, e.g. `ln -sfn "$PWD/skills/video-generate-setup" ~/.claude/skills/video-generate-setup`.
+For `video-generate-setup`, then run `bash skills/video-generate-setup/scripts/setup.sh` to install the video tools.
 
 Windows:
 
@@ -68,11 +69,14 @@ claude-skills/
     │   └── references/
     │       ├── example-238-product-except-self.md
     │       └── example-739-daily-temperatures.md
-    └── linkedin-post-writter/
+    ├── linkedin-post-writter/
+    │   ├── SKILL.md
+    │   └── references/
+    │       ├── hooks.md
+    │       └── examples.md
+    └── archify/                 # third-party (tt-a1i/archify), vendored as-is
         ├── SKILL.md
-        └── references/
-            ├── hooks.md
-            └── examples.md
+        └── bin/ renderers/ schemas/ ...
 ```
 
 ## Also worth backing up
