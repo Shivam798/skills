@@ -1,13 +1,14 @@
 ---
 name: dsa
-description: Solve a LeetCode / DSA problem as a graded ladder of approaches in the exact order you would present them in an interview — brute force first, then each refinement, ending at the optimal. Use whenever the user pastes a LeetCode URL, a problem number, a problem title, or a raw DSA problem statement, or asks for "approaches", "optimal solution", "how do I answer this in an interview", or "interview strategy" for an algorithm problem. Default language is Java.
+description: Solve a LeetCode / DSA problem as the interview script — the solutions you should mention, in the exact order you should mention them, with full working code for every one of them and a clear marker on the single one you would write on the board. Use whenever the user pastes a LeetCode URL, a problem number, a problem title, or a raw DSA problem statement, or asks for "approaches", "optimal solution", "how do I answer this in an interview", or "interview strategy" for an algorithm problem. Default language is Java.
 ---
 
 # DSA Interview Answer
 
-Turn any DSA problem into the answer you would actually give in an interview: a
-ladder of approaches, worst to best, each one motivated by the specific weakness
-of the one before it.
+Produce the **speaking order** for an interview: which solutions to mention, in
+what sequence, and which single one to actually write on the board — plus
+**working code for every approach**, so the reader can study each one even for
+the steps they'd only say out loud.
 
 The output is a **single markdown document**. No preamble, no "Here's the
 solution!", no closing chatter. Start at the `#` title and stop at the last line
@@ -26,25 +27,25 @@ not stop to ask.
 **Language:** Java by default. If the user names another language, use that one
 throughout and keep every other rule identical.
 
-## The ladder — the core idea
+## The core rule — every approach gets code, one gets the board
 
-Approaches are ordered **worst to best**, and each one exists because it fixes a
-concrete flaw in its predecessor. The reader should never wonder "why are we
-moving on?" — the callout after each approach tells them.
+Two separate things, and never conflate them:
 
-Include an approach when it:
+- **The label says what to do in the room.** An approach marked *say it, then
+  drop it* is a sentence you speak, not something you implement live. Exactly
+  **one** approach is marked **`✅ Write this`** — the one you commit to on the
+  board. A *offer only if asked* step is held in reserve.
+- **The code is always there anyway.** **Every step carries a full, compilable
+  `class Solution`**, including the ones you'd only mention. The reader is
+  studying the problem, not just rehearsing it — they need to see what the
+  discarded idea actually looks like, and code they can run beats a description.
 
-- is what an interviewer expects you to say first (**always** open with brute force),
-- shows you noticed a constraint (a solution the problem *forbids* — e.g. division
-  on 238 — is worth showing precisely because rejecting it proves you read the rules),
-- is a real intermediate step (extra arrays → same idea done in `O(1)` space),
-- is a legitimate alternative to the optimal with a different trade-off.
+So each step has both: the spoken line (what leaves your mouth) *and* the
+implementation (what it would be if you wrote it).
 
-Typical count is **2–4**. Never pad the ladder with a variant that teaches nothing.
-Mark exactly one approach `✅ Optimal` — the one you would actually write in the
-interview. If a later approach beats it on space but is harder to derive under
-pressure, keep the ✅ on the interview-preferred one and say so in its callout
-(see approach 3 of the 739 reference).
+Total steps: **2–4**. Never include a step that teaches nothing. Order is the
+deliverable: step 1 is the first thing out of your mouth, and each later step
+exists because the previous one was rejected for a stated reason.
 
 ## Document format
 
@@ -58,9 +59,10 @@ is intentional and part of the format.
 
 ---
 
-## **1️⃣ <Approach Name> — O(<time>) Time, O(<space>) Space**
+## **1️⃣ Say it, then drop it — <Approach Name> — O(<time>) Time, O(<space>) Space**
 
-<One or two plain sentences: the idea, not the code.>
+> **▎"<What you say out loud, first person: the idea, its cost, and the reason
+> you're not writing it.>"**
 
 ```java id="a1b2c3"
 class Solution {
@@ -70,22 +72,42 @@ class Solution {
 }
 ```
 
-> **▎<Why this is not the answer — the cost, the failure, the waste — and the hint toward the next approach.>**
+**For your understanding:** <one or two sentences on how this code works and the
+exact line where its weakness lives.>
 
 ---
 
-## **2️⃣ <Approach Name> — O(<time>) Time, O(<space>) Space ✅ Optimal**
+## **2️⃣ Write this — <Approach Name> — O(<time>) Time, O(<space>) Space ✅**
 
-...
+<One sentence: the idea, not the code.>
+
+```java id="d4e5f6"
+class Solution {
+    // ...
+}
+```
+
+**Say while writing:** <the invariant, why the complexity holds, and which edge
+cases this dissolves.>
 
 ---
 
-## **Interview Strategy**
+## **3️⃣ Offer only if asked — <Approach Name> — O(<time>) Time, O(<space>) Space**
 
-* **Recognize the pattern:** **<trigger → technique>.**
-* <What the data structure holds / what the invariant is.>
-* <The key insight that makes it work.>
-* <How to justify the complexity out loud.>
+<One sentence: the idea.>
+
+```java id="g7h8i9"
+class Solution {
+    // ...
+}
+```
+
+**Trade-off:** <why it stays off the board even though it works.>
+
+---
+
+> **▎Watch for:** <the one trap or near-miss variant an interviewer probes —
+> e.g. the sibling problem whose answer differs. Omit if there isn't one.>
 
 > **▎Related problems:** <3–5 comma-separated problems drilling the same pattern.>
 ````
@@ -100,53 +122,74 @@ Answer, Union-Find, Prefix Sum, Backtracking, Topological Sort, …). Omit it wh
 the problem is a one-off construction rather than a pattern instance. Format:
 `> **Pattern:** **Monotonic Stack (Next Greater Element)**`
 
-**`---`** — a horizontal rule between every approach and before Interview Strategy.
+**`---`** — a horizontal rule between every step and before the closing callouts.
 
-**Approach heading** — `## **N️⃣ <Name> — O(x) Time, O(y) Space**`. Use the keycap
-emoji digits `1️⃣ 2️⃣ 3️⃣ 4️⃣`. Say **Extra** Space (`O(1) Extra Space`) whenever the
-output array is excluded from the count. Append ` ✅ Optimal` to exactly one heading.
+**Step heading** — `## **N️⃣ <Verb phrase> — <Name> — O(x) Time, O(y) Space**`.
+Use the keycap emoji digits `1️⃣ 2️⃣ 3️⃣ 4️⃣`. The verb phrase is one of exactly
+three: **`Say it, then drop it`**, **`Write this`**, **`Offer only if asked`**.
+Say **Extra** Space (`O(1) Extra Space`) whenever the output array is excluded
+from the count. Append ` ✅` to the single `Write this` heading.
 
-**Prose** — one or two sentences above the code, describing the *idea*. Never
-narrate the code line by line. Use inline code for the recurrence or invariant
-when it sharpens things: `` `res[i] = (product left of i) × (product right of i)` ``.
+**Spoken line** — on `Say it, then drop it` steps, the blockquote comes *first*,
+above the code: whole line bold, opening with `▎`, in quotes, first person, as
+you'd actually say it. Ground the rejection in the real constraints — `n ≤ 10⁵` →
+`O(n²)` ≈ `10¹⁰` ops → TLE. If the problem *forbids* an approach (division on
+238), the spoken line is where you show you read the rules. If the brute force
+would in fact pass the given limits, say so honestly and reject it on the better
+reason instead.
 
-**Code block** — opening fence carries a random 6-character lowercase
-alphanumeric id: ` ```java id="k9w4nt" `. Generate a fresh id per block, unique
-within the document. Then:
+**Prose** — on `Write this` and `Offer only if asked` steps, one sentence above
+the code describing the *idea*. Never narrate the code line by line. Use inline
+code for the recurrence or invariant when it sharpens things:
+`` `res[i] = (product left of i) × (product right of i)` ``.
+
+**Code block** — **required on every step, no exceptions.** Opening fence carries
+a random 6-character lowercase alphanumeric id: ` ```java id="k9w4nt" `. Generate
+a fresh id per block, unique within the document. Then:
 
 - Full compilable `class Solution { ... }` with LeetCode's exact signature.
+- It must actually be *correct* — a discarded approach is still code the reader
+  will run, so it gets the same edge-case scrutiny as the optimal one.
 - Blank lines separating logical stages — the reader is scanning, not compiling.
 - Short trailing `//` comments on the lines carrying the insight, explaining
   **why**, not what. `// skip self`, `// ≥2 zeros → everything 0`,
   `// grow the running right-product`. Never comment `i++`.
+- **Name every idiom the code leans on, right where it appears.** Assume the
+  reader knows the language but not the trick, and never leave them to ask what a
+  line is for afterwards. Anything scaffolding-shaped gets a trailing `//`:
+  LeetCode's two-arg `ListNode(int val, ListNode next)` (`// val is filler; next
+  = head`), a dummy/sentinel head and why the return is `dummy.next` (`// the
+  real head may itself have been deleted`), the `fast.next != null &&
+  fast.next.next != null` middle convention (`// slow lands on the LAST node of
+  the first half`), `ArrayDeque` used as a stack, a mutable `int[1]` holder
+  threaded through recursion, a `long` cast guarding overflow, an
+  `Integer.MIN_VALUE` sentinel. If it doesn't fit on the line, it becomes one
+  clause in the line under the code.
 - No imports, no `main`, no test harness, no print statements.
 
-**Transition callout** — a blockquote immediately after the code, whole line bold,
-opening with `▎`:
+**The line under the code** — one of three labels, matching the step type:
 
-`> **▎Rescanning the array for every index is `O(n²)` → TLE for `n` up to `10⁵`. We're recomputing overlapping products.**`
+- **`For your understanding:`** (discarded steps) — how the code works, and the
+  exact line or loop where the cost lives.
+- **`Say while writing:`** (the written step) — the talk track. The invariant
+  (what each pointer / structure holds), the one-sentence complexity
+  justification ("every index is pushed once and popped once", "the inner
+  `while` is amortized `O(n)`"), and the edge cases the construction dissolves
+  (empty input, head deleted, all-equal, overflow). Include one clause on any
+  scaffolding construct the code needed — what the sentinel buys, what the
+  pointer convention guarantees — so the mechanism is never left implicit.
+- **`Trade-off:`** (reserve steps) — why it works but stays off the board.
 
-This is the load-bearing part of the format. Each callout must do one job:
+Backtick every complexity and constraint in all three.
 
-- *Non-optimal:* name the concrete cost and why it disqualifies the approach.
-  Ground it in the real constraints — `n ≤ 10⁵` → `O(n²)` ≈ `10¹⁰` ops → TLE.
-  Then point at what to fix, so the next heading feels inevitable.
-- *Optimal:* say what it achieves and which pitfalls it dissolves — "no division,
-  and naturally handles zeros without any special cases."
-- *Post-optimal alternative:* give the trade-off honestly and state which one to
-  write in an interview.
-
-Backtick every complexity and constraint inside callouts.
-
-**Interview Strategy** — closing section, `*` bullets, only for problems with a
-transferable pattern. Cover: the trigger→technique mapping, what the structure
-holds, the key invariant, and the one-sentence complexity justification (e.g.
-"every index is pushed once and popped once"). Close with the related-problems
-callout, same `> **▎...**` form.
+**Closing callouts** — same `> **▎...**` form, at most two lines: a `Watch for:`
+trap and a `Related problems:` list. Omit either when there's nothing real to
+say. No bullet-list strategy section — the talk track already carried it.
 
 ## Correctness bar
 
-The code is the deliverable — it must compile and pass. Before writing each block:
+Every code block is a deliverable — all of them must compile and pass. Before
+writing each one:
 
 - Check the edge cases the problem is really testing: empty / single element,
   all-equal, duplicates, negatives, zeros, overflow, `n == 1`.
@@ -156,12 +199,19 @@ The code is the deliverable — it must compile and pass. Before writing each bl
 - Prefer `Deque`/`ArrayDeque` over `Stack`, `StringBuilder` over `+=` in loops,
   `long` where products or sums can overflow `int`.
 
+Complexities quoted in the spoken lines must be right too — you say them out loud.
+
 ## References
 
-Two full worked examples in the exact target format — read one before writing if
-you need to calibrate tone, comment density, or callout phrasing:
+Three full worked examples in the exact target format — read one before writing if
+you need to calibrate tone, comment density, or spoken-line phrasing:
 
-- `references/example-238-product-except-self.md` — 4-rung ladder, includes a
-  deliberately forbidden approach, no Interview Strategy section.
-- `references/example-739-daily-temperatures.md` — pattern line, ✅ not on the
-  final rung, full Interview Strategy section.
+- `references/example-238-product-except-self.md` — three discarded steps, one of
+  them a forbidden approach, no closing trap line.
+- `references/example-739-daily-temperatures.md` — pattern line, one discarded
+  step, plus a reserve approach after the written one.
+- `references/example-82-remove-duplicates-sorted-list-ii.md` — the idiom-comment
+  standard: a brute force that *would* pass the limits and is rejected on the
+  better reason, and a sentinel-node solution where every piece of scaffolding
+  (`ListNode(val, next)`, why `prev` stays put, why the return is `dummy.next`)
+  is explained on the line it appears.

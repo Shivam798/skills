@@ -223,7 +223,34 @@ Your LinkedIn voice should be:
 
 ### The Hook (Lines 1-2)
 
-The first 2-3 lines appear before "See more" and determine everything.
+**The hard rule: the hook must be a complete, finished thought inside ~140
+characters.** That is roughly two lines, and it is everything the reader sees
+before "...more" cuts the post off. Anything past that character is invisible
+until they have already decided to click.
+
+This kills the most common failure in a good post: a setup that needs four lines
+to pay off. If your hook is "Two apps. Same limit. / App A does X. / App B does
+Y." the reader sees the first line and a half, gets no tension, and scrolls.
+Compress the whole contrast into one or two sentences instead:
+
+- Broken: `Two apps. Same rule: 5 OTP requests an hour.` (line 1) then the
+  contrast on lines 2-3 — the payoff is below the fold, so the hook is just a
+  statement of fact
+- Works: `Two apps, same limit of 5 OTPs an hour. One locks you out for 59
+  minutes. The other quietly hands one back after 12. 🤔`
+
+Test every hook by truncating it at 140 characters and reading what is left. If
+what survives is not interesting on its own, the hook has failed regardless of
+how good the rest of the post is.
+
+**Put the surprise, the number, or the contradiction in the first sentence.** Not
+the context, not the setup, not the "let me explain." Context is what the body is
+for.
+
+**One emoji at the end of the hook** gives the eye somewhere to land in a feed of
+grey text — 🤔 for a puzzle, 👀 for a reveal, 🚨 for a warning. It is optional,
+but it earns its place here more than anywhere else in the post.
+
 
 **Modern hooks that work** (avoid overused patterns):
 
@@ -304,6 +331,22 @@ Ask the question directly; one short sentence beats a hedged two.
 
 Keep it to one question. Two questions in a close means most people answer
 neither.
+
+## Final check before you hand it over
+
+Run these four silently. Any failure means rewrite, not tweak.
+
+1. **Truncate at 140 characters.** Is what survives a finished, interesting
+   thought on its own? If the payoff sits below the cut, the post is invisible.
+2. **Scan it on a phone.** Every paragraph 1-3 lines, blank line between each,
+   an emoji roughly every 3-4 lines so the eye has somewhere to rest. A wall of
+   text loses before it is read.
+3. **Does the body only cover what the attachment actually contains?** If the
+   post promises something the PDF, video or carousel does not deliver, the
+   reader feels it and does not come back for the next one.
+4. **Read the closing question out loud.** Can a stranger answer it in four
+   words, without thinking? Does answering make them look smart? If not, replace
+   it with one that does.
 
 ## Vulnerability Done Right
 
@@ -498,7 +541,16 @@ Most Top Voices sit slightly right of center on each.
 
 - Never use hashtags inline with text
 - Place 3-5 hashtags at the very end, after a line break
-- One emoji max, if any (overuse signals inauthenticity)
+- Emoji are visual anchors, not decoration. Use them where the eye needs a
+  stopping point: one at the end of the hook, one per item in a numbered or
+  bulleted list, and one at the handoff line that points at the attachment
+  ("Watch all five 👇"). That is the ceiling — roughly one every 3-4 lines
+- Numbered lists read best as 1️⃣ 2️⃣ 3️⃣; a mixed list reads best with one
+  emoji per item that actually means something (🔗 for links, ⏱️ for timing,
+  🚨 for a failure), never a random rotation of smileys
+- Never put emoji inside a sentence, never stack two together, and never use one
+  in the closing question — the close should read as a person asking, not a brand
+  posting
 - Use "I" not "we" for personal posts
 
 ## What to Avoid
