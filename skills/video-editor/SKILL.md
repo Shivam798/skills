@@ -41,8 +41,11 @@ missing, tell the user and offer to run `setup.sh`; don't silently install.
 Always follow this order. It keeps the original safe and every step reversible.
 
 1. **Workspace.** One folder per project, outside any code repo:
-   `~/Videos/edits/<project-kebab>/` with `src/` (originals, never modified),
-   `work/` (intermediates), `out/` (deliverables).
+   `~/VE/Projects/<project-kebab>/` with `src/` (originals, never modified),
+   `work/` (intermediates). Raw clips go in `~/VE/Raw Footage/`, downloaded references in
+   `~/VE/References/`. Final deliverables go **only** in `~/VE/Exports/YouTube 16x9/` or
+   `~/VE/Exports/Instagram Reels 9x16/` (by ratio); delete superseded samples/lower-res renders.
+   The old AI-image `style-video` skill is suspended (`~/.claude/skills-disabled/`).
 2. **Probe.** `ffprobe -v error -show_entries format=duration:stream=codec_type,codec_name,width,height,r_frame_rate,sample_rate -of compact <file>`.
    Note the resolution, fps, duration and whether there's audio. Never assume.
 3. **Transcribe** anything with speech (§3). The transcript is the edit map:
@@ -117,7 +120,7 @@ Best for: animated captions, title cards, lower thirds, overlays on footage,
 explainer scenes. A composition is an HTML page; HyperFrames renders it frame by frame.
 
 ```bash
-cd ~/Videos/edits/<project>
+cd ~/VE/Projects/<project>
 hyperframes init graphics --video src/talk.mp4 --resolution portrait --language en --non-interactive
 cd graphics
 hyperframes preview                 # live studio in the browser
@@ -139,7 +142,7 @@ hyperframes render -o ../out/reel.mp4 --quality delivery
 Best for: reusable templates, data-driven videos, explainers built from code.
 
 ```bash
-cd ~/Videos/edits && npx create-video@latest <project>    # new project (choose a template)
+cd ~/VE/Projects && npx create-video@latest <project>    # new project (choose a template)
 cd <project> && npm run dev                                # Remotion Studio preview
 npx remotion render <CompositionId> out/video.mp4
 npx remotion still <CompositionId> out/thumbnail.png --frame=30
@@ -171,11 +174,13 @@ someone else's content, and say so if the user's plan involves reposting.
 
 ## 7. Export presets & verification
 
+**Always 4K** (user default): Remotion `--scale=2` on a 1080p composition, CRF 16, AAC 320k, loudnorm -14 LUFS. Only go lower if the user asks.
+
 | Target | Size | Notes |
 |---|---|---|
-| Reels / Shorts / TikTok | 1080×1920, 30 fps | ≤ 90 s for Reels; keep captions inside the middle ~70% (UI covers edges) |
-| YouTube | 1920×1080 (or 4K), source fps | `-crf 18`, `-movflags +faststart` |
-| LinkedIn / X | 1080×1080 or 1920×1080 | ≤ 10 min LinkedIn; burn captions in (most watch muted) |
+| Reels / Shorts / TikTok | **2160×3840** (4K), 30 fps | ≤ 90 s for Reels; keep captions inside the middle ~70% (UI covers edges) |
+| YouTube | **3840×2160** (4K), source fps | `-crf 16`, `-movflags +faststart` |
+| LinkedIn / X | 2160×2160 or 3840×2160 | ≤ 10 min LinkedIn; burn captions in (most watch muted) |
 | GIF | 800 px wide, 15 fps | Two-pass palette, see the recipes |
 
 Standard final encode:
